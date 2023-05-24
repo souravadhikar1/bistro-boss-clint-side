@@ -5,7 +5,10 @@ import featured from "../../../assets/home/featured.jpg";
 
 const Featured = () => {
   return (
-    <div className="featured-items pt-8 my-20" style={{ color: " #FFFFFF" }}>
+    <div
+      className="featured-items pt-8 my-20 bg-fixed bg-slate-500 bg-opacity-10"
+      style={{ color: " #FFFFFF" }}
+    >
       <SectionTitle
         subheading={"check it out"}
         heading={"Featured Item"}
@@ -26,7 +29,9 @@ const Featured = () => {
             doloremque necessitatibus? Dicta nemo perspiciatis iste quos dolores
             blanditiis dolor?
             <p>
-              <button className="btn btn-outline">Order Now</button>
+              <button className="btn btn-outline border-0 border-b-4 mt-4">
+                Order Now
+              </button>
             </p>
           </p>
         </div>
