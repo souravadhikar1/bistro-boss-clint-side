@@ -37,5 +37,18 @@
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.2"
-  }
+  },
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souravadhikar1/bistro-boss-clint-side.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souravadhikar1/bistro-boss-clint-side/issues"
+  },
+  "homepage": "https://github.com/souravadhikar1/bistro-boss-clint-side#readme",
+  "description": ""
 }
