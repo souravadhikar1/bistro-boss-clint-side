@@ -22,12 +22,18 @@ const Navbar = () => {
         <Link to="/menu">Our Menu</Link>
       </li>
       <li>
-        <Link to="/order/salad">Order Food</Link>
+        <Link to="/secret">Secret</Link>
       </li>
 
       {user ? (
         <>
-          <button className="btn btn-ghost">Logout</button>
+          <span>{user?.displayName}</span>
+          <span className=" rounded-lg w-10">
+            <img src={user?.photoURL} alt="" />
+          </span>
+          <button onClick={handleLogout} className="btn btn-ghost">
+            Logout
+          </button>
         </>
       ) : (
         <>
