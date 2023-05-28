@@ -113,7 +113,8 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                  // TODO: make buttons disebaled to fit
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="login"
