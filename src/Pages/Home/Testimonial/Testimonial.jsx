@@ -31,6 +31,13 @@ const Testimonial = () => {
           <SwiperSlide key={review._id}>
             <div className="m-24">
               <p className="items-center flex flex-col my-16 mx-24">
+                <div className="w-40">
+                  <img
+                    className=""
+                    src="https://www.pngall.com/wp-content/uploads/4/Quotation-Symbol-PNG.png"
+                    alt=""
+                  />
+                </div>
                 <Rating
                   style={{ maxWidth: 180 }}
                   value={review?.rating}

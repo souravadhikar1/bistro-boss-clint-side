@@ -38,7 +38,7 @@ const MyCart = () => {
   };
 
   return (
-    <div className="w-full ml-3">
+    <div className="max-w-full  ml-3">
       <Helmet>
         <title>Bistro Boss | My Cart</title>
       </Helmet>
