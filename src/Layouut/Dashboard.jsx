@@ -13,13 +13,16 @@ import { ImMenu } from "react-icons/im";
 import { MdFoodBank } from "react-icons/md";
 import SectionTitle from "../Components/Sectiontitle/SectionTitle";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
   //  TODO: Load data from the server  to have dynamic isAdmin based on data
 
-  const isAdmin = true;
+  // const isAdmin = true;
+
+  const [isAdmin] = useAdmin();
 
   return (
     <div>
