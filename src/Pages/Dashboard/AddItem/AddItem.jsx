@@ -3,16 +3,16 @@ import SectionTitle from "../../../Components/Sectiontitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { ImSpoonKnife } from "react-icons/im";
+import useAxiosSecure from "../../../hooks/useAxiousSecure";
+import Swal from "sweetalert2";
 
 const img_hosting_token = import.meta.env.VITE_UPLOAD_TOKEN;
 
 const AddItem = () => {
-  const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
+  const { register, handleSubmit, reset } = useForm();
+  const [axiosSecure] = useAxiosSecure();
+
   const onSubmit = (data) => {
     // ! for image-------------------
     const formData = new FormData();
@@ -24,12 +24,36 @@ const AddItem = () => {
     })
       .then((response) => response.json())
       .then((imgResponse) => {
-        console.log(imgResponse);
+        if (imgResponse.success) {
+          const imgUrl = imgResponse.data.display_url;
+          const { name, category, price, recipe } = data;
+          const newItem = {
+            name,
+            category,
+            price: parseFloat(price),
+            recipe,
+            image: imgUrl,
+          };
+          console.log(newItem);
+          axiosSecure.post("/menu", newItem).then((data) => {
+            console.log("after posting new item", data.data);
+            if (data.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Add new item",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+        }
       });
 
     // !----------------------------------
   };
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <div className="w-full px-10 bg-slate-300 ml-5 mb-6 rounded-lg">
@@ -68,6 +92,7 @@ const AddItem = () => {
               <option>Soup</option>
               <option>Salad</option>
               <option>Drinks</option>
+              <option>Desi</option>
               <option>Dessert</option>
             </select>
           </div>
